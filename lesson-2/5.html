@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+  <script>
+    "use strict";
+
+    const a = Number(prompt('Введите первое число'));
+    const b = Number(prompt('Введите второе число'));
+    const operation = prompt('Введите знак операции');
+
+
+    // Считает сумму переданных аргументов.
+    function summ(a, b) {
+      return a + b
+    }
+
+    // Считает разницу переданных аргументов.
+    function difference(a, b) {
+      if (a > b) {
+        return a - b;
+      } else if (a < b) {
+        return b - a;
+      } else if (a === b) {
+        return 0;
+      }
+    }
+
+    // Считает произведение переданных аргументов.
+    function multiplication(a, b) {
+      return a * b
+    }
+
+    // Считает частное переданных аргументов.
+    function division(a, b) {
+      return a / b
+    }
+
+    // Вычисляем результат арифметической операции по двум аргументам и знаку
+    function mathOperation(a, b, operation) {
+      switch (operation) {
+        case "+":
+          return summ(a, b);
+        case "-":
+          return difference(a, b);
+        case "*":
+          return multiplication(a, b);
+        case "/":
+          return division(a, b);
+        default: return NaN;
+      }
+    }
+
+    console.log(mathOperation(a, b, operation));
+
+
+  </script>
+</body>
+
+</html>
